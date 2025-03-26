@@ -180,18 +180,3 @@ class WeatherFetcher:
                     self.run()
                 else:
                     print("Exiting Weather Information Fetcher.")
-
-
-def main():
-    """Main function to run the application"""
-    try:
-        weather_fetcher = WeatherFetcher()
-        weather_fetcher.run()
-    except KeyboardInterrupt:
-        print("\nProgram terminated by user.")
-    except Exception as err:
-        print(f"An unexpected error occurred: {err}")
-
-
-if __name__ == "__main__":
-    main()

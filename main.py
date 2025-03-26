@@ -1,3 +1,5 @@
+#api key = a612116ff3018aa4cae2884314f84e49
+
 import requests
 
 class WeatherFetcher:

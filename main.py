@@ -1,23 +1,13 @@
 import requests
 
 class WeatherFetcher:
-    def __init__(self):
+    def __init__(self, api_key, city):
         self.base_url = "http://api.openweathermap.org/data/2.5/weather"
-        self.api_key = None
-        self.city = None
-
-    def get_user_input(self):
-        self.api_key = input("Enter your OpenWeatherMap API key: ").strip()
-        self.city = input("Enter city name (e.g., London, New York, Tokyo): ").strip()
-        
-        # Basic input validation
-        if not self.api_key or not self.city:
-            print("Error: Both API key and city name are required.")
-            return False
-        return True
+        self.api_key = api_key
+        self.city = city
 
     def fetch_weather(self):
-        print(f"\nFetching weather data for {self.city}...")
+        print(f"Fetching weather data for {self.city}...")
         params = {
             'q': self.city,
             'appid': self.api_key,
@@ -63,16 +53,14 @@ class WeatherFetcher:
             print(f"Error: Missing data in API response: {key_err}")
 
     def run(self):
-        while True:
-            if self.get_user_input():
-                weather_data = self.fetch_weather()
-                if weather_data:
-                    self.display_weather(weather_data)
-            
-            # Ask to continue or exit
-            if input("\nCheck another city? (y/n): ").lower() != 'y':
-                print("Thank you for using the Weather Information Fetcher!")
-                break
+        weather_data = self.fetch_weather()
+        if weather_data:
+            self.display_weather(weather_data)
 
+api_key = input("Enter your OpenWeatherMap API key: ").strip()
+city = input("Enter city name (e.g., London, New York, Tokyo): ").strip()
 
-WeatherFetcher().run()
+if api_key and city:
+    WeatherFetcher(api_key, city).run()
+else:
+    print("Error: Both API key and city name are required.")

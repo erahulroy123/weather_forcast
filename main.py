@@ -1,16 +1,3 @@
-#!/usr/bin/env python3
-"""
-Weather Information Fetcher
-
-This script allows users to fetch current weather data for any location
-using the OpenWeatherMap API.
-
-Usage:
-1. Get an API key from OpenWeatherMap (https://home.openweathermap.org/users/sign_up)
-2. Run the script and enter your API key and city name when prompted
-3. View the weather information displayed in the console
-"""
-
 import requests
 import json
 from datetime import datetime
@@ -180,3 +167,6 @@ class WeatherFetcher:
                     self.run()
                 else:
                     print("Exiting Weather Information Fetcher.")
+                    
+weather_fetcher = WeatherFetcher()
+weather_fetcher.run()

@@ -7,7 +7,6 @@ class WeatherFetcher:
         self.city = None
 
     def get_user_input(self):
-        print("\n===== Weather Information Fetcher =====")
         self.api_key = input("Enter your OpenWeatherMap API key: ").strip()
         self.city = input("Enter city name (e.g., London, New York, Tokyo): ").strip()
         

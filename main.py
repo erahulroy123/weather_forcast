@@ -34,9 +34,6 @@ class WeatherFetcher:
         return None
 
     def display_weather(self, weather_data):
-        if not weather_data:
-            return
-        
         try:
             main_info = weather_data['main']
             weather_info = weather_data['weather'][0]
@@ -50,8 +47,7 @@ class WeatherFetcher:
             print(f"Temperature: {main_info['temp']}°C")
             print(f"Feels like: {main_info['feels_like']}°C")
             print(f"Humidity: {main_info['humidity']}%")
-            print(f"Wind Speed: {wind_info['speed']} m/s")
-            
+            print(f"Wind Speed: {wind_info['speed']} m/s")  
         except KeyError as key_err:
             print(f"Error: Missing data in API response: {key_err}")
 

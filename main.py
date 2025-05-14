@@ -1,6 +1,3 @@
-#api key = a612116ff3018aa4cae2884314f84e49
-#link to run code: https://colab.research.google.com/drive/1EDsQIydnWVdvBEIHXEJ7odXFuEl_Z5ol?usp=sharing
-
 import requests
 
 class WeatherFetcher:

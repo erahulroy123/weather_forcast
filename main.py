@@ -1,3 +1,5 @@
+#api key = a612116ff3018aa4cae2884314f84e49
+
 import requests
 
 class WeatherFetcher:
@@ -7,7 +9,6 @@ class WeatherFetcher:
         self.city = city
 
     def fetch_weather(self):
-        print(f"Fetching weather data for {self.city}...")
         params = {
             'q': self.city,
             'appid': self.api_key,
@@ -34,17 +35,11 @@ class WeatherFetcher:
         try:
             main_info = weather_data['main']
             weather_info = weather_data['weather'][0]
-            wind_info = weather_data['wind']
-            sys_info = weather_data['sys']
+            city_name = weather_data['name']
             
-            location = f"{weather_data['name']}, {sys_info['country']}"
-            print(f"\nWeather in {location}")
-            print("-" * 30)
-            print(f"Condition: {weather_info['description'].title()}")
+            print(f"Weather in {city_name}")
+            print(f"Condition: {weather_info['description']}")
             print(f"Temperature: {main_info['temp']}°C")
-            print(f"Feels like: {main_info['feels_like']}°C")
-            print(f"Humidity: {main_info['humidity']}%")
-            print(f"Wind Speed: {wind_info['speed']} m/s")  
         except KeyError as key_err:
             print(f"Error: Missing data in API response: {key_err}")
 

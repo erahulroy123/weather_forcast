@@ -33,13 +33,13 @@ class WeatherFetcher:
 
     def display_weather(self, weather_data):
         try:
-            main_info = weather_data['main']
-            weather_info = weather_data['weather'][0]
             city_name = weather_data['name']
-            
+            temperature = weather_data['main']['temp']
+            condition = weather_data['weather'][0]['description']
+        
             print(f"Weather in {city_name}")
-            print(f"Condition: {weather_info['description']}")
-            print(f"Temperature: {main_info['temp']}°C")
+            print(f"Temperature: {temperature}°C")
+            print(f"Condition: {condition}")
         except KeyError as key_err:
             print(f"Error: Missing data in API response: {key_err}")
 
